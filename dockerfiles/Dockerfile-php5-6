@@ -1,0 +1,4 @@
+FROM php:5.6.21-fpm
+MAINTAINER mesaque.silva@madlabbrazil.com
+RUN docker-php-ext-install mysqli
+ENV TERM xterm
