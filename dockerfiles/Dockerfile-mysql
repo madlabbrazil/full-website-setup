@@ -1,4 +1,4 @@
-FROM mariadb:10.1.13
+FROM mysql:5.7.12
 MAINTAINER mesaque.silva@madlabbrazil.com
 ENV MYSQL_USER madlab
 ENV MYSQL_PASSWORD h4524M8NMP1pZcX
