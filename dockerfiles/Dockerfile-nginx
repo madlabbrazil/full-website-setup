@@ -2,6 +2,7 @@ FROM nginx:1.9.15
 MAINTAINER mesaque.silva@madlabbrazil.com
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY php.loc /etc/nginx/conf.d/php.loc
+COPY index.php /www/index.php
 COPY start-nginx.sh /start-nginx.sh
 RUN apt-get update && apt-get install -y --force-yes vim wget tar
 

@@ -41,3 +41,10 @@ docker restart fllws-nginx
 docker build -f dockerfiles/Dockerfile-varnish -t full-website-varnish .
 docker run -d --name fllws-varnish --link fllws-nginx --volumes-from fllws-website-data --env 'VCL_CONFIG=/default.vlc' full-website-varnish
 ```
+
+
+Informativos:
+O IP do varnish para se colocado no seu navegador pode ser descoberto assim:
+```
+docker inspect fllws-varnish | grep -P "\"IPAddress\":"
+```
