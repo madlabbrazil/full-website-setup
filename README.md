@@ -6,6 +6,10 @@ Description:
 [Full Presetation](https://docs.google.com/presentation/d/1DReA_GDzy6HvG0TJ1Ry-CQlmVhuNZsEbXi7VGO3-f3k/edit?usp=sharing)
 
 
+#How to Install:
+1. You need have installed and working docker-engine on your machine
+2. Clone the project to your machine
+3. On the project root just start follow down instruction copying and pasting the scripts on your shell command
 
 ###1. Create MySQL Instances
 ```shell-script
