@@ -1,5 +1,8 @@
 # Full-Website-Setup
 
+![alt slider](http://cdn.madlabbrazil.com/ex04.jpg)
+https://docs.google.com/presentation/d/1DReA_GDzy6HvG0TJ1Ry-CQlmVhuNZsEbXi7VGO3-f3k/edit?usp=sharing
+
 ```
 docker build -f dockerfiles/Dockerfile-mysql -t full-website-db . &&
 docker run -d --name fllws-database-master --hostname master.madlabbrazil.com full-website-db &&
