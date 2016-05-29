@@ -13,15 +13,15 @@ Description:
 
 ###1. Create MySQL Instances
 ```shell-script
-docker build -f dockerfiles/Dockerfile-mysql -t full-website-db . &&
+docker build  -t full-website-db  'https://raw.githubusercontent.com/madlabbrazil/full-website-setup/master/dockerfiles/Dockerfile-mysql' &&
 docker run -d --name fllws-database-master --hostname master.madlabbrazil.com full-website-db &&
 docker run -d --name fllws-database-slave --hostname slave.madlabbrazil.com --link fllws-database-master full-website-db
 ```
 ***Wait 5 min to MySQL finish some internal configurations***
 
 ```shell-script
-docker cp my-master.cnf fllws-database-master:/etc/mysql/my.cnf &&
-docker cp my-slave.cnf fllws-database-slave:/etc/mysql/my.cnf &&
+docker exec fllws-database-master curl -o /etc/mysql/my.cnf  'https://raw.githubusercontent.com/madlabbrazil/full-website-setup/master/my-master.cnf' &&
+docker exec fllws-database-master curl -o /etc/mysql/my.cnf  'https://raw.githubusercontent.com/madlabbrazil/full-website-setup/master/my-slave.cnf' &&
 docker restart fllws-database-master fllws-database-slave
 ```
 ***Wait 1 min to MySQL be ready!***
@@ -38,7 +38,7 @@ docker  create --name fllws-website-data --volume /www debian:jessie
 
 ###3. Create PHP containers
 ```shell-script
-docker build -f dockerfiles/Dockerfile-php5-6 -t full-website-php5-6 . &&
+docker build  -t full-website-php5-6  'https://raw.githubusercontent.com/madlabbrazil/full-website-setup/master/dockerfiles/Dockerfile-php5-6' &&
 docker  run -d --name fllws-php5-6 --volumes-from fllws-website-data --link fllws-database-master --link fllws-database-slave full-website-php5-6
 ```
 ###4. Create Nginx webserver
