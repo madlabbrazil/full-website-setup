@@ -5,3 +5,4 @@ ENV MYSQL_PASSWORD h4524M8NMP1pZcX
 ENV MYSQL_DATABASE fll_db
 ENV MYSQL_ROOT_PASSWORD VoYTuebBX5srpCz
 ENV TERM xterm
+RUN apt-get update && apt-get install -y --force-yes curl
