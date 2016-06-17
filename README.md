@@ -53,7 +53,7 @@ docker restart fllws-nginx
 ###5. Create Varnish container
 ```shell-script
 docker build -f dockerfiles/Dockerfile-varnish -t full-website-varnish .
-docker run -d --name fllws-varnish --link fllws-nginx --volumes-from fllws-website-data --env 'VCL_CONFIG=/default.vlc' full-website-varnish
+docker run -d --name fllws-varnish --link fllws-nginx -p 80:80 --volumes-from fllws-website-data --env 'VCL_CONFIG=/default.vlc' full-website-varnish
 ```
 
 
