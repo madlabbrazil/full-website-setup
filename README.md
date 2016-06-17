@@ -11,6 +11,8 @@ Description:
 2. Clone the project to your machine
 3. On the project root just start follow down instruction copying and pasting the scripts on your shell command
 
+##You need at leat a VPS with 1Gb of Memory!!!
+
 ###1. Create MySQL Instances
 ```shell-script
 docker build  -t full-website-db  'https://raw.githubusercontent.com/madlabbrazil/full-website-setup/master/dockerfiles/Dockerfile-mysql' &&
@@ -20,8 +22,8 @@ docker run -d --name fllws-database-slave --hostname slave.madlabbrazil.com --li
 ***Wait 5 min to MySQL finish some internal configurations***
 
 ```shell-script
-docker exec fllws-database-master curl -o /etc/mysql/my.cnf  'https://raw.githubusercontent.com/madlabbrazil/full-website-setup/master/my-master.cnf' &&
-docker exec fllws-database-master curl -o /etc/mysql/my.cnf  'https://raw.githubusercontent.com/madlabbrazil/full-website-setup/master/my-slave.cnf' &&
+docker exec fllws-database-master /usr/bin/curl -o /etc/mysql/my.cnf  'https://raw.githubusercontent.com/madlabbrazil/full-website-setup/master/my-master.cnf' &&
+docker exec fllws-database-slave /usr/bin/curl -o /etc/mysql/my.cnf  'https://raw.githubusercontent.com/madlabbrazil/full-website-setup/master/my-slave.cnf' &&
 docker restart fllws-database-master fllws-database-slave
 ```
 ***Wait 1 min to MySQL be ready!***
