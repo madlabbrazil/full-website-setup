@@ -11,7 +11,7 @@ Description:
 2. Clone the project to your machine
 3. On the project root just start follow down instruction copying and pasting the scripts on your shell command
 
-##You need at leat a VPS with 1Gb of Memory!!!
+##You need at leat a VPS with 2Gb of Memory!!!
 
 ###1. Create MySQL Instances
 ```shell-script
