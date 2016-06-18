@@ -29,7 +29,7 @@ docker restart fllws-database-master fllws-database-slave
 ***Wait 1 min to MySQL be ready!***
 ```shell-script
 docker exec -it fllws-database-master mysql -pVoYTuebBX5srpCz -e 'CREATE USER "replication_server1"@"172.17.0.%" IDENTIFIED BY "084T92x0x0B998M"; GRANT REPLICATION SLAVE ON *.* TO "replication_server1"@"172.17.0.%";' &&
-docker exec -it fllws-database-slave mysql -pVoYTuebBX5srpCz -e 'CHANGE MASTER TO MASTER_HOST = "master.madlabbrazil.com", MASTER_PORT = 3306, MASTER_USER = "replication_server1", MASTER_PASSWORD = "084T92x0x0B998M", MASTER_LOG_FILE="mysql-bin.000001", MASTER_LOG_POS=0;START SLAVE;'
+docker exec -it fllws-database-slave mysql -pVoYTuebBX5srpCz -e 'CHANGE MASTER TO MASTER_HOST = "fllws-database-master", MASTER_PORT = 3306, MASTER_USER = "replication_server1", MASTER_PASSWORD = "084T92x0x0B998M", MASTER_LOG_FILE="mysql-bin.000001", MASTER_LOG_POS=0;START SLAVE;'
 ```
 
 ###2. Create disk file
